@@ -2,7 +2,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
-const Admin = require('../models/adminRegistration');
+const Admin = require('../../models/adminRegistration');
 
 router.post('/login', async (req, res, next) => {
     const { username, password } = req.body;
