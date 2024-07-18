@@ -23,10 +23,10 @@ router.post('/', async (req, res) => {
         console.log(npiData.results[0].basic, "NPI")
         if (npiData.result_count > 0) {
             const status = npiData.results[0].basic.status;
-            const client_firstName = npiData.results[0].basic.first_name;
-            const client_lastName = npiData.results[0].basic.last_name;
+            const client_FirstName = npiData.results[0].basic.first_name;
+            const client_LastName = npiData.results[0].basic.last_name;
 
-            if (client_firstName.toLowerCase() === client_firstName.toLowerCase() && client_lastName.toLowerCase() === client_lastName.toLowerCase()) {
+            if (client_firstName.toLowerCase() === client_FirstName.toLowerCase() && client_lastName.toLowerCase() === client_LastName.toLowerCase()) {
                 // NPI verification successful, proceed with client registration
                 const newClient = new clientRegistration({
                     client_firstName,
@@ -37,8 +37,6 @@ router.post('/', async (req, res) => {
                     client_EMR,
                     client_id,
                     client_secret
-
-
                 });
 
                 await newClient.save();
@@ -51,7 +49,7 @@ router.post('/', async (req, res) => {
             } else {
                 res.status(404).json({
                     success: false,
-                    message: "Name mismatch. Not a valid NPI Number."
+                    message: "Name mismatch"
                 });
             }
         } else {

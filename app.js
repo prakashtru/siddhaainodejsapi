@@ -10,11 +10,21 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
+const mongoUri = process.env.MONGODB_URI;
+if (!mongoUri) {
+    throw new Error('MONGODB_URI is not defined in the environment variables');
+}
+// console.log('MongoDB URI:', mongoUri);
 // Configuration for the database
 const config = {
-    database: 'mongodb://localhost:27017/siddaai'
+    database: mongoUri
 };
 
+// const config = {
+//     database: 'mongodb://localhost:27017/siddhaai'
+// };
+
+// console.log("config==>",config);
 // Connect to MongoDB using Mongoose
 mongoose.connect(config.database, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
