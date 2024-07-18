@@ -1,6 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
-const AdminRegistration = require('../models/adminRegistration');
+const AdminRegistration = require('../../models/adminRegistration');
 let jwt = require('jsonwebtoken');
 const router = express.Router();
 

@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let axios = require('axios')
-let clientRegistration = require('../models/clientRegistration');
+let clientRegistration = require('../../models/clientRegistration');
 const dotenv = require('dotenv');
 const { URLSearchParams } = require('url');
 //let base_url = "https://drchrono.com"
