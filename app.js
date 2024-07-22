@@ -45,10 +45,11 @@ const AdminRegistration = require('./models/adminRegistration');
 const AdminOtp = require('./models/adminOtpModel');
 
 // Use the client registration router
-const clientRegistrationRouter = require('./routes/clientregistration');
-const adminRegistrationRouter = require('./routes/adminregistration')
+const clientRegistrationRouter = require('./routes/clientRegistry/clientregistration');
 app.use('/clientregistration', clientRegistrationRouter);
+const adminRegistrationRouter = require('./routes/adminPortal/adminregistration')
 app.use('/adminregistration', adminRegistrationRouter);
+
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
